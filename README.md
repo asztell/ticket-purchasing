@@ -18,6 +18,7 @@ Logs to the node console.
 
 ### 1. Improve the general flow
   - create a Quantity component and add it as an additional page after selecting the event
+  - add error handling to UI and backend
 ### 2. Add unit testing
   - use Jest
 ### 3. Add localization
@@ -26,5 +27,5 @@ Logs to the node console.
   - improve on raw components
   - improve on layout
 ### 5. Improve on backend functionality
-  - add payment endpoint w validation
+  - add payment endpoint with validation
 ### 6. Add TypeScript to the backend
