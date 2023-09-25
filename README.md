@@ -15,8 +15,14 @@ Logs to the node console.
 ## TODO:
 
 ### 1. Improve the general flow
+  - create a Quantity component and add it as an additional page after selecting the event
 ### 2. Add unit testing
+  - use Jest
 ### 3. Add localization
+  - use react-intl
 ### 4. Finish layout and styling
+  - improve on raw components
+  - improve on layout
 ### 5. Improve on backend functionality
+  - add payment endpoint w validation
 ### 6. Add TypeScript to the backend
