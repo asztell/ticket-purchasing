@@ -1,7 +1,14 @@
 import { createContext, useEffect, useMemo, useState } from "react";
 
+export type Event = {
+  name: string;
+  location: string;
+  ISODate: string;
+  price: number;
+};
+
 export type EventsContextType = {
-  events: string[];
+  events: Event[];
   error: string | null;
 };
 
@@ -10,7 +17,7 @@ export const EventsContext = createContext<EventsContextType>(
 );
 
 export function EventsProvider({ children }: { children: React.ReactNode }) {
-  const [events, setEvents] = useState<string[]>([]);
+  const [events, setEvents] = useState<Event[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {

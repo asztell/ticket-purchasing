@@ -1,16 +1,16 @@
 import { useContext, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { TicketPurchasingContext } from "../contexts";
-// import { Redirect } from "./Redirect";
+import "./Summary.scss";
 
-export function Summary() {
+export function Summary({ className }: { className?: string }) {
   const { selectedEvent, ticketsCounter, cardInfo } = useContext(
     TicketPurchasingContext
   );
   const navigate = useNavigate();
-  const handleSubmit = useCallback(async () => {
+  const handleSubmit = useCallback(() => {
     console.log("Submitting...");
-    // start spinner (loading)
+    // TODO: start spinner (loading)
 
     // TODO: if time permits refactor to try/catch with async/await
     fetch("http://localhost:8080/checkout", {
@@ -40,47 +40,34 @@ export function Summary() {
         console.log(error);
       })
       .finally(() => {
-        // stop spinner/loading (in case user comes back to this page)
+        // TODO: stop spinner/loading (in case user comes back to this page)
       });
-
-    //   try {
-    //     const response = await fetch('/')
-    //     const data = await response.json()
-    //     const response2 = await fetch('/2', data)
-    //     const data2 = await response2.json()
-    //   } catch (error) {
-
-    //   }
   }, [selectedEvent, ticketsCounter, cardInfo, navigate]);
 
   return (
-    <div className="Summary">
-      <h2>Summary</h2>
-      <p>Event: {selectedEvent}</p>
-      <p>Tickets: {ticketsCounter}</p>
-      <p>Card Number: {cardInfo.cardNumber}</p>
-      <p>Security Code: {cardInfo.securityCode}</p>
-      {/* <Redirect
-        to="/confirmation/pending"
-        label="Purchase Tickets"
-        disabled={
-          cardInfo.cardType === "" ||
-          cardInfo.cardType === "Invalid" ||
-          !cardInfo.securityCodeValid
-        }
-        className="Purchase-Tickets"
-        onClick={handleSubmit}
-      /> */}
-      <button
-        onClick={handleSubmit}
-        disabled={
-          cardInfo.cardType === "" ||
-          cardInfo.cardType === "Invalid" ||
-          !cardInfo.securityCodeValid
-        }
-      >
-        Purchase Tickets
-      </button>
+    <div className={className}>
+      <div className="Total">
+        <h2>Total</h2>
+        <p>Event: {selectedEvent?.name}</p>
+        <p>Tickets: {ticketsCounter}</p>
+        <p>Card Number: {cardInfo.cardNumber}</p>
+        <p>Security Code: {cardInfo.securityCode}</p>
+        <input type="checkbox" name="termsOfUse" />
+        <label htmlFor="termsOfUse">
+          I have read and agree to the current <a href="#">Terms of Use</a>
+        </label>
+        <button
+          className="Purchase-Tickets-Button"
+          onClick={handleSubmit}
+          disabled={
+            cardInfo.cardType === "" ||
+            cardInfo.cardType === "Invalid" ||
+            !cardInfo.securityCodeValid
+          }
+        >
+          Place Order
+        </button>
+      </div>
     </div>
   );
 }

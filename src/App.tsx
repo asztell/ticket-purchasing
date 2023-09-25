@@ -1,17 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { TicketPurchasingProvider } from "./contexts/ticketPurchasing";
 import { EventsProvider } from "./contexts/events";
-import "./App.css";
+import "./App.scss";
 
 export function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Ticket Purchasing App</h1>
-      </header>
+      <header className="App-Header"></header>
       <EventsProvider>
         <TicketPurchasingProvider>
-          <Outlet />
+          <div className="App-Content">
+            <Outlet />
+          </div>
         </TicketPurchasingProvider>
       </EventsProvider>
     </div>

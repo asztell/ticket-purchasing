@@ -1,0 +1,105 @@
+.Delivery,
+.Payment,
+.Ticket-Insurance {
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+  & > h2 {
+    font-size: 20px;
+    font-family: "Averta", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
+.Payment-Section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  & > input[type="text"] {
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    border: 1px solid rgb(153, 153, 153);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 2px 0px inset;
+    font-size: 16px;
+    line-height: 35px;
+    margin-top: 4px;
+    outline: none;
+    padding: 4px 32px 4px 16px;
+  }
+  & > input[type="text"]:focus {
+    border-color: rgb(0, 132, 255);
+    box-shadow: rgba(0, 132, 255, 0.3) 0px 2px 8px 0px inset;
+  }
+}
+.Payment {
+  .Payment-Validation-Error {
+    color: rgb(217, 58, 58);
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 4px;
+    word-break: break-word;
+    transition: opacity 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s,
+      margin-bottom 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
+    opacity: 1;
+    margin-bottom: 0px;
+  }
+  /* shamelessly stolen code from ticketmaster for cuteness purposes */
+  .Amex {
+    display: inline-block;
+    border-radius: 2px;
+    margin-top: 4px;
+    background: url(https://checkout.ticketmaster.com/fanwallet/v4.66.1/static/images/wallet-items/american-express.svg)
+      center center / 32px 24px no-repeat transparent;
+    width: 32px;
+    min-width: 32px;
+    height: 24px;
+  }
+  .Visa {
+    display: inline-block;
+    border-radius: 2px;
+    margin-top: 4px;
+    background: url(https://checkout.ticketmaster.com/fanwallet/v4.66.1/static/images/wallet-items/visa.svg)
+      center center / 32px 24px no-repeat transparent;
+    width: 32px;
+    min-width: 32px;
+    height: 24px;
+  }
+  .Master-Card {
+    display: inline-block;
+    border-radius: 2px;
+    margin-top: 4px;
+    background: url(https://checkout.ticketmaster.com/fanwallet/v4.66.1/static/images/wallet-items/master-card.svg)
+      center center / 32px 24px no-repeat transparent;
+    width: 32px;
+    min-width: 32px;
+    height: 24px;
+  }
+  .Discover {
+    display: inline-block;
+    border-radius: 2px;
+    margin-top: 4px;
+    background: url(https://checkout.ticketmaster.com/fanwallet/v4.66.1/static/images/wallet-items/discover.svg)
+      center center / 32px 24px no-repeat transparent;
+    width: 32px;
+    min-width: 32px;
+    height: 24px;
+  }
+  .Diners-Club {
+    display: inline-block;
+    border-radius: 2px;
+    margin-top: 4px;
+    background: url(https://checkout.ticketmaster.com/fanwallet/v4.66.1/static/images/wallet-items/diners-club.svg)
+      center center / 32px 24px no-repeat transparent;
+    width: 32px;
+    min-width: 32px;
+    height: 24px;
+  }
+  .Accepted-Cards {
+    display: flex;
+  }
+  .Accepted-Cards > * {
+    margin-right: 8px;
+    margin-bottom: 25px;
+  }
+}

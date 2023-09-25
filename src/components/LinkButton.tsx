@@ -1,8 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function Redirect({
-  // rename to LinkButton
+export function LinkButton({
   to,
   disabled,
   label,
@@ -21,7 +20,7 @@ export function Redirect({
     navigate(to);
   }, [onClick, navigate, to]);
 
-  const linkClassName = "Redirect" + (className ? " " + className : "");
+  const linkClassName = "LinkButton" + (className ? " " + className : "");
 
   return (
     <div>

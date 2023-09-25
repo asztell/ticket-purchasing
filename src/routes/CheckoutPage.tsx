@@ -1,12 +1,15 @@
-import { Billing, Summary, Redirect } from "../components";
+import { Billing, Summary, LinkButton } from "../components";
+import "./CheckoutPage.scss";
 
 export function CheckoutPage() {
   return (
-    <div>
-      <Billing />
-      <Summary />
-      <Redirect to="/events" label="Back to Events" />
-      <Redirect to="/" label="Home Page" />
-    </div>
+    <>
+      <div className="Checkout-Page">
+        <Billing className="Billing" />
+        <Summary className="Summary" />
+      </div>
+      <LinkButton to="/events" label="Back to Events" />
+      <LinkButton to="/" label="Home Page" />
+    </>
   );
 }

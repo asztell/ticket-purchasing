@@ -1,0 +1,35 @@
+.Event-Card {
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 4px;
+  padding: 20px;
+  //   padding-right: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  &.Selected-Event-Card {
+    background-color: lightgray;
+  }
+  &.Event-Name {
+    line-height: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: rgb(38, 38, 38);
+  }
+}
+.Event-Name {
+  line-height: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: rgb(38, 38, 38);
+}
+.Event-Date,
+.Event-Location {
+  line-height: 18px;
+  font-size: 14px;
+  color: rgba(38, 38, 38, 0.65);
+}
+
+.Event-Price {
+  margin-top: 20px;
+}
