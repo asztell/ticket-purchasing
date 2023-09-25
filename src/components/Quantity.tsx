@@ -16,7 +16,7 @@ export function Quantity() {
 
   return (
     <div className="Quantity">
-      {/* <h2>Quantity</h2> */}
+      <h2>Quantity</h2>
       <div>
         <button
           id="decrement-btn"

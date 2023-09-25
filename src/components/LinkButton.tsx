@@ -1,12 +1,14 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import classnames from "classnames";
+import "./LinkButton.scss";
 
 export function LinkButton({
   to,
   disabled,
   label,
   className,
-  onClick, // remove onClick
+  onClick,
 }: {
   to: string;
   disabled?: boolean;
@@ -20,7 +22,7 @@ export function LinkButton({
     navigate(to);
   }, [onClick, navigate, to]);
 
-  const linkClassName = "LinkButton" + (className ? " " + className : "");
+  const linkClassName = classnames("LinkButton", className);
 
   return (
     <div>
