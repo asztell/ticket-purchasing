@@ -26,6 +26,7 @@ export function Events() {
         {events.map((event: Event) => {
           return (
             <EventCard
+              key={event.name}
               event={event}
               selected={selectedEvent === event}
               className="Event"

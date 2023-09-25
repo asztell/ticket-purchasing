@@ -15,9 +15,11 @@ export type TicketPurchasingContextType = {
   selectedEvent: Event | undefined;
   ticketsCounter: number;
   cardInfo: CardInfoType;
+  termsOfUseChecked: boolean;
   updateSelectedEvent: (selectedEvent: Event) => void;
   updateTicketsCounter: (ticketsCounter: number) => void;
   updateCardInfo: (cardInfo: CardInfoType) => void;
+  updateTermsOfUseChecked: (termsOfUseChecked: boolean) => void;
 };
 
 export const TicketPurchasingContext =
@@ -32,6 +34,8 @@ export function TicketPurchasingProvider({
   const [selectedEvent, setSelectedEvent] = useState<Event | undefined>(
     undefined
   );
+  const [termsOfUseChecked, setTermsOfUseChecked] = useState(false);
+
   const [cardInfo, setCardInfo] = useState({
     nameOnCard: "",
     cardNumber: "",
@@ -50,6 +54,10 @@ export function TicketPurchasingProvider({
 
   const updateSelectedEvent = useCallback((selectedEvent: Event) => {
     setSelectedEvent(selectedEvent);
+  }, []);
+
+  const updateTermsOfUseChecked = useCallback((termsOfUseChecked: boolean) => {
+    setTermsOfUseChecked(termsOfUseChecked);
   }, []);
 
   const updateCardInfo = useCallback((cardInfo: CardInfoType) => {
@@ -71,17 +79,21 @@ export function TicketPurchasingProvider({
       selectedEvent,
       ticketsCounter,
       cardInfo,
+      termsOfUseChecked,
       updateSelectedEvent,
       updateTicketsCounter,
       updateCardInfo,
+      updateTermsOfUseChecked,
     };
   }, [
     selectedEvent,
     ticketsCounter,
     cardInfo,
+    termsOfUseChecked,
     updateSelectedEvent,
     updateTicketsCounter,
     updateCardInfo,
+    updateTermsOfUseChecked,
   ]);
   return (
     <TicketPurchasingContext.Provider value={value}>
@@ -109,8 +121,7 @@ export function validateCardNumber(cardNumber: string) {
 
 export function validateExpirationDate(expirationDate: string) {
   const expirationDateValid =
-    expirationDate.match(
-      new RegExp("^(0[1-9]|1[0-2])\\/?([0-9]{4}|[0-9]{2})$")
-    ) !== null && new Date(expirationDate) > new Date();
+    expirationDate.match(new RegExp("^([0-9]{4})-(0[1-9]|1[0-2])$")) !== null &&
+    new Date(expirationDate) > new Date();
   return expirationDateValid;
 }

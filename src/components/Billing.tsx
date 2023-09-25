@@ -68,20 +68,9 @@ export function Billing({ className }: { className?: string }) {
       <div className="Payment">
         <h2 className="Section-Header">Payment</h2>
         <div data-tid="accepted-cards" className="Accepted-Cards">
+          <div aria-label="american-express" role="img" className="Amex"></div>
+          <div aria-label="visa" role="img" className="Visa"></div>
           <div
-            // logo="american-express"
-            aria-label="american-express"
-            role="img"
-            className="Amex"
-          ></div>
-          <div
-            // logo="visa"
-            aria-label="visa"
-            role="img"
-            className="Visa"
-          ></div>
-          <div
-            // logo="master-card"
             aria-label="master-card"
             role="img"
             className="Master-Card"
@@ -93,18 +82,13 @@ export function Billing({ className }: { className?: string }) {
             className="Discover"
           ></div>
           <div
-            // logo="diners-club"
             aria-label="diners-club"
             role="img"
             className="Diners-Club"
           ></div>
         </div>
         <div className="Payment-Section">
-          <label
-            htmlFor="name-on-card"
-            className="Payment-Form-Label"
-            // style={{ marginRight: "10px", marginBottom: "20px" }}
-          >
+          <label htmlFor="name-on-card" className="Payment-Form-Label">
             Name on Card
           </label>
           <input
@@ -117,11 +101,7 @@ export function Billing({ className }: { className?: string }) {
           {/* <span>{cardInfo.cardType}</span> */}
         </div>
         <div className="Payment-Section">
-          <label
-            htmlFor="card-number"
-            className="Payment-Form-Label"
-            // style={{ marginRight: "10px", marginBottom: "20px" }}
-          >
+          <label htmlFor="card-number" className="Payment-Form-Label">
             Card Number
           </label>
           <input
@@ -129,19 +109,17 @@ export function Billing({ className }: { className?: string }) {
             onChange={handleCardNumberChanges}
             // onBlur={handleCardNumberBlur}
             value={cardInfo.cardNumber}
-            // style={{ marginBottom: "10px" }}
           />
           <span className="Payment-Validation-Error">{cardInfo.cardType}</span>
         </div>
         <div className="Payment-Section">
           <label className="Payment-Form-Label">Expiration Date</label>
           <input
-            type="text"
+            type="month"
             onChange={handleExpirationDateChanges}
             // onBlur={handleSecurityCodeBlur}
             value={cardInfo.expirationDate}
             maxLength={8}
-            // style={{ marginBottom: "20px" }}
           />
           <span>{cardInfo.expirationDateValid}</span>
         </div>
@@ -153,7 +131,6 @@ export function Billing({ className }: { className?: string }) {
             // onBlur={handleSecurityCodeBlur}
             value={cardInfo.securityCode}
             maxLength={3}
-            // style={{ marginBottom: "20px" }}
           />
           <span>{cardInfo.securityCodeValid}</span>
         </div>

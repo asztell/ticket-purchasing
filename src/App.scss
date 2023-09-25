@@ -3,23 +3,18 @@
 }
 
 .App-Content {
-  //   width: 1000px;
   width: 80vw;
-  //   border: 1px solid red;
   margin-left: auto;
   margin-right: auto;
 }
 
 .App-Header {
-  /* background-color: #282c34; */
   background-color: rgb(2, 108, 223);
   height: 60px;
-  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   margin-bottom: 50px;
-  /* color: white; */
 }

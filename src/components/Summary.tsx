@@ -4,9 +4,26 @@ import { TicketPurchasingContext } from "../contexts";
 import "./Summary.scss";
 
 export function Summary({ className }: { className?: string }) {
-  const { selectedEvent, ticketsCounter, cardInfo } = useContext(
-    TicketPurchasingContext
-  );
+  const {
+    selectedEvent,
+    ticketsCounter,
+    cardInfo,
+    termsOfUseChecked,
+    updateTermsOfUseChecked,
+  } = useContext(TicketPurchasingContext);
+  const {
+    cardType,
+    securityCodeValid,
+    expirationDateValid,
+    cardNumber,
+    securityCode,
+  } = cardInfo;
+  console.log("termsOfUseChecked", termsOfUseChecked);
+
+  const handleChangeTermsOfUse = useCallback(() => {
+    updateTermsOfUseChecked(!termsOfUseChecked);
+  }, [termsOfUseChecked, updateTermsOfUseChecked]);
+
   const navigate = useNavigate();
   const handleSubmit = useCallback(() => {
     console.log("Submitting...");
@@ -21,8 +38,8 @@ export function Summary({ className }: { className?: string }) {
       body: JSON.stringify({
         event: selectedEvent,
         tickets: ticketsCounter,
-        cardNumber: cardInfo.cardNumber,
-        securityCode: cardInfo.securityCode,
+        cardNumber: cardNumber,
+        securityCode: securityCode,
       }),
     })
       .then((response) => {
@@ -42,7 +59,7 @@ export function Summary({ className }: { className?: string }) {
       .finally(() => {
         // TODO: stop spinner/loading (in case user comes back to this page)
       });
-  }, [selectedEvent, ticketsCounter, cardInfo, navigate]);
+  }, [selectedEvent, ticketsCounter, navigate, cardNumber, securityCode]);
 
   return (
     <div className={className}>
@@ -50,9 +67,15 @@ export function Summary({ className }: { className?: string }) {
         <h2>Total</h2>
         <p>Event: {selectedEvent?.name}</p>
         <p>Tickets: {ticketsCounter}</p>
-        <p>Card Number: {cardInfo.cardNumber}</p>
-        <p>Security Code: {cardInfo.securityCode}</p>
-        <input type="checkbox" name="termsOfUse" />
+        <p>Card Number: {cardNumber}</p>
+        <p>Security Code: {securityCode}</p>
+        <input
+          type="checkbox"
+          // onClick={handleClickTermsOfUse}
+          onChange={handleChangeTermsOfUse}
+          checked={termsOfUseChecked}
+          name="termsOfUse"
+        />
         <label htmlFor="termsOfUse">
           I have read and agree to the current <a href="#">Terms of Use</a>
         </label>
@@ -60,9 +83,11 @@ export function Summary({ className }: { className?: string }) {
           className="Purchase-Tickets-Button"
           onClick={handleSubmit}
           disabled={
-            cardInfo.cardType === "" ||
-            cardInfo.cardType === "Invalid" ||
-            !cardInfo.securityCodeValid
+            cardType === "" ||
+            cardType === "Invalid" ||
+            !securityCodeValid ||
+            !expirationDateValid ||
+            !termsOfUseChecked
           }
         >
           Place Order
