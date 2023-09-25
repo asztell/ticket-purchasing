@@ -14,7 +14,7 @@ Logs to the node console.
 
 ## TODO:
 
-### 1. Improve on the general flow
+### 1. Improve the general flow
 ### 2. Add unit testing
 ### 3. Add localization
 ### 4. Finish layout and styling
