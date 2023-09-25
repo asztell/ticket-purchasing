@@ -12,6 +12,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 Runs the node server in the development mode on port 8080.\
 Logs to the node console.
 
+(CAVEAT: .env file would normally be ignored, it was added as a convenience for the reviewers)
+
 ## TODO:
 
 ### 1. Improve the general flow
