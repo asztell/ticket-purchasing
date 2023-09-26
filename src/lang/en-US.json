@@ -17,16 +17,16 @@
       },
       "Payment-Section": {
         "Name-On-Card": {
-          "Text": "Name on Card"
+          "Label": "Name on Card"
         },
         "Card-Number": {
-          "Text": "Card Number"
+          "Label": "Card Number"
         },
         "Expiration-Date": {
-          "Text": "Expiration Date"
+          "Label": "Expiration Date"
         },
         "Security-Code": {
-          "Text": "Security Code"
+          "Label": "Security Code"
         }
       }
     },
