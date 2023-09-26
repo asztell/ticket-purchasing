@@ -2,6 +2,10 @@
   "name": "ticket-purchasing",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=19.0.0",
+    "npm": ">=9.0.0"
+  },
   "dependencies": {
     "classnames": "^2.3.2",
     "cors": "^2.8.5",
