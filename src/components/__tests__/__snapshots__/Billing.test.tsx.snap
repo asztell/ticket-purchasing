@@ -9,13 +9,13 @@ exports[`<Billing /> render Billing 1`] = `
       <h2
         class="Section-Header"
       >
-        Delivery
+        Test Delivery
       </h2>
       <h3>
-        Mobile - Free
+        Test Mobile - Free
       </h3>
       <p>
-        Your phone's your ticket. Locate your tickets in your account - or in your app. When you go mobile, your tickets will not be emailed to you or available for print.
+        Test Your phone's your ticket. Locate your tickets in your account - or in your app. When you go mobile, your tickets will not be emailed to you or available for print.
       </p>
     </div>
     <div
@@ -24,7 +24,7 @@ exports[`<Billing /> render Billing 1`] = `
       <h2
         class="Section-Header"
       >
-        Payment
+        Test Payment
       </h2>
       <div
         class="Accepted-Cards"
@@ -63,7 +63,7 @@ exports[`<Billing /> render Billing 1`] = `
           class="Payment-Form-Label"
           for="name-on-card"
         >
-          Name on Card
+          Test Name on Card
         </label>
         <input
           type="text"
@@ -77,7 +77,7 @@ exports[`<Billing /> render Billing 1`] = `
           class="Payment-Form-Label"
           for="card-number"
         >
-          Card Number
+          Test Card Number
         </label>
         <input
           type="text"
@@ -93,7 +93,7 @@ exports[`<Billing /> render Billing 1`] = `
         <label
           class="Payment-Form-Label"
         >
-          Expiration Date
+          Test Expiration Date
         </label>
         <input
           maxlength="8"
@@ -108,7 +108,7 @@ exports[`<Billing /> render Billing 1`] = `
         <label
           class="Payment-Form-Label"
         >
-          Security Code
+          Test Security Code
         </label>
         <input
           maxlength="3"
@@ -125,10 +125,10 @@ exports[`<Billing /> render Billing 1`] = `
       <h2
         class="Section-Header"
       >
-        Ticket Insurance
+        Test Ticket Insurance
       </h2>
       <p>
-        Get reimbursed up to 100% with Event Ticket Insurance for only $28.00 per ticket ($56.00 total). *Offer not available after purchase is finalized.
+        Test Get reimbursed up to 100% with Event Ticket Insurance for only $28.00 per ticket ($56.00 total). *Offer not available after purchase is finalized.
       </p>
     </div>
   </div>

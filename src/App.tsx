@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import { IntlProvider } from "react-intl";
-// import { flatten } from "flat";
 import messages from "./lang/en-US.json";
 import { TicketPurchasingProvider } from "./contexts/ticketPurchasing";
 import { EventsProvider } from "./contexts/events";
@@ -8,7 +7,7 @@ import "./App.scss";
 
 export function App() {
   const flattenedMessages = flattenMessages(messages);
-  console.log(flattenedMessages);
+
   return (
     <div className="App">
       <IntlProvider locale={navigator.language} messages={flattenedMessages}>

@@ -23,18 +23,15 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     fetch(`http://localhost:8080/events`)
       .then((res) => {
-        console.log("1st then: res", res);
         if (!res.ok) {
           throw res;
         }
         return res.json();
       })
       .then((result) => {
-        console.log("2nd then: result", result);
         setEvents(result);
       })
       .catch((error) => {
-        console.log("catch: error", error);
         setError(error);
       });
   }, [setEvents]);
