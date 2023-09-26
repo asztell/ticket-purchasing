@@ -1,16 +1,9 @@
 import { useContext } from "react";
-import {
-  fireEvent,
-  render,
-  getByTestId,
-  getByText,
-  screen,
-} from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import {
   TicketPurchasingContext,
   TicketPurchasingProvider,
 } from "../ticketPurchasing";
-import { get } from "http";
 
 describe("TicketPurchasingContext", () => {
   function TestComponent() {
@@ -83,7 +76,7 @@ describe("TicketPurchasingContext", () => {
     );
   }
   test("should return initial state", () => {
-    const { container } = render(
+    render(
       <TicketPurchasingProvider>
         <TestComponent />
       </TicketPurchasingProvider>
