@@ -56,6 +56,7 @@ export function Billing({ className }: { className?: string }) {
 
   return (
     <div className={className}>
+      {/* TODO: each Billing entry can be extracted into its own component */}
       <div className="Delivery">
         <h2 className="Section-Header">
           <FormattedMessage id="Billing.Delivery.Header.Text" />
@@ -68,7 +69,9 @@ export function Billing({ className }: { className?: string }) {
         </p>
       </div>
       <div className="Payment">
-        <h2 className="Section-Header">Payment</h2>
+        <h2 className="Section-Header">
+          <FormattedMessage id="Billing.Payment.Header.Text" />
+        </h2>
         <div data-tid="accepted-cards" className="Accepted-Cards">
           <div aria-label="american-express" role="img" className="Amex"></div>
           <div aria-label="visa" role="img" className="Visa"></div>
@@ -89,22 +92,21 @@ export function Billing({ className }: { className?: string }) {
             className="Diners-Club"
           ></div>
         </div>
+        {/* TODO: the payment sections can be extracted into a PaymentSection component */}
         <div className="Payment-Section">
           <label htmlFor="name-on-card" className="Payment-Form-Label">
-            Name on Card
+            <FormattedMessage id="Billing.Payment.Payment-Section.Name-On-Card.Label" />
           </label>
           <input
             type="text"
             onChange={handleNameOnCardChanges}
             // onBlur={handleCardNumberBlur}
             value={cardInfo.nameOnCard}
-            // style={{ marginBottom: "10px" }}
           />
-          {/* <span>{cardInfo.cardType}</span> */}
         </div>
         <div className="Payment-Section">
           <label htmlFor="card-number" className="Payment-Form-Label">
-            Card Number
+            <FormattedMessage id="Billing.Payment.Payment-Section.Card-Number.Label" />
           </label>
           <input
             type="text"
@@ -115,7 +117,9 @@ export function Billing({ className }: { className?: string }) {
           <span className="Payment-Validation-Error">{cardInfo.cardType}</span>
         </div>
         <div className="Payment-Section">
-          <label className="Payment-Form-Label">Expiration Date</label>
+          <label className="Payment-Form-Label">
+            <FormattedMessage id="Billing.Payment.Payment-Section.Expiration-Date.Label" />
+          </label>
           <input
             type="month"
             onChange={handleExpirationDateChanges}
@@ -126,7 +130,9 @@ export function Billing({ className }: { className?: string }) {
           <span>{cardInfo.expirationDateValid}</span>
         </div>
         <div className="Payment-Section">
-          <label className="Payment-Form-Label">Security Code</label>
+          <label className="Payment-Form-Label">
+            <FormattedMessage id="Billing.Payment.Payment-Section.Security-Code.Label" />
+          </label>
           <input
             type="text"
             onChange={handleSecurityCodeChanges}
@@ -139,11 +145,11 @@ export function Billing({ className }: { className?: string }) {
         <div></div>
       </div>
       <div className="Ticket-Insurance">
-        <h2 className="Section-Header">Ticket Insurance</h2>
+        <h2 className="Section-Header">
+          <FormattedMessage id="Billing.Ticket-Insurance.Header.Text" />
+        </h2>
         <p>
-          Get reimbursed up to 100% with Event Ticket Insurance for only $28.00
-          per ticket ($56.00 total). *Offer not available after purchase is
-          finalized.
+          <FormattedMessage id="Billing.Ticket-Insurance.Description.Text" />
         </p>
       </div>
     </div>
