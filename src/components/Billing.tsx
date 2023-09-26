@@ -60,8 +60,8 @@ export function Billing({ className }: { className?: string }) {
           return null;
         }
       case "expirationDate":
-        if (showSecurityCodeValidation) {
-          return cardInfo.securityCodeValid ? null : "Invalid";
+        if (showExpirationDateValidation) {
+          return cardInfo.expirationDateValid ? null : "Invalid";
         } else {
           return null;
         }
