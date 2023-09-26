@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Quantity /> render Quantity 1`] = `
+<div>
+  <div
+    class="Quantity"
+  >
+    <h2>
+      Quantity
+    </h2>
+    <div>
+      <button
+        id="decrement-btn"
+        style="margin-right: 10px;"
+      >
+        -
+      </button>
+      <span
+        id="counter-value"
+      />
+      <button
+        id="increment-btn"
+        style="margin-left: 10px;"
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
+`;

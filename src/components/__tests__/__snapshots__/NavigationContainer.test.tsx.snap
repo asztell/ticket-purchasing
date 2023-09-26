@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavigationContainer /> render NavigationContainer 1`] = `
+<div>
+  <div
+    class="Navigation-Container"
+  >
+    test
+  </div>
+</div>
+`;

@@ -14,7 +14,6 @@ export function EventCard({
   className?: string;
   onEventChange: (event: Event) => void;
 }) {
-  console.log(selected);
   const { ISODate, name, price, location } = event;
   const formattedDate = new Date(ISODate).toLocaleDateString();
   const formattedTime = new Date(ISODate).toLocaleTimeString();

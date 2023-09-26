@@ -18,7 +18,6 @@ export function Summary({ className }: { className?: string }) {
     cardNumber,
     securityCode,
   } = cardInfo;
-  console.log("termsOfUseChecked", termsOfUseChecked);
 
   const handleChangeTermsOfUse = useCallback(() => {
     updateTermsOfUseChecked(!termsOfUseChecked);

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EventsPage /> render EventsPage 1`] = `
+<div>
+  <div
+    class="Events-Page"
+  >
+    <div>
+      <div
+        class="Events"
+      >
+        <h2>
+          Events
+        </h2>
+        <div>
+          <label
+            for="event-select"
+          >
+            Choose an event:
+          </label>
+          <div
+            class="Event-Card Event"
+          >
+            <div
+              class="Event-Name"
+            >
+              Test Event
+            </div>
+            <div
+              class="Event-Date"
+            >
+              Thursday • 12/31/2020 • 7:00:00 PM
+            </div>
+            <div
+              class="Event-Location"
+            >
+              Test Location
+            </div>
+            <div
+              class="Event-Price"
+            >
+              Price: $100.00
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="Quantity"
+      >
+        <h2>
+          Quantity
+        </h2>
+        <div>
+          <button
+            id="decrement-btn"
+            style="margin-right: 10px;"
+          >
+            -
+          </button>
+          <span
+            id="counter-value"
+          >
+            1
+          </span>
+          <button
+            id="increment-btn"
+            style="margin-left: 10px;"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Navigation-Container"
+    >
+      <div>
+        <button
+          class="LinkButton Events-Page-To-Home-Page Link-Button Left-Link-Button"
+        >
+          &lt; Home Page
+        </button>
+      </div>
+      <div>
+        <button
+          class="LinkButton Events-Page-To-Checkout-Page Link-Button Right-Link-Button"
+        >
+          Next &gt;
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

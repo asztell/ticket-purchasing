@@ -4,7 +4,6 @@ import "./Billing.scss";
 
 export function Billing({ className }: { className?: string }) {
   const { cardInfo, updateCardInfo } = useContext(TicketPurchasingContext);
-  console.log(cardInfo);
 
   const handleNameOnCardChanges = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {

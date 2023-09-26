@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> render App 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header
+      class="App-Header"
+    />
+    <div
+      class="App-Content"
+    />
+  </div>
+</div>
+`;

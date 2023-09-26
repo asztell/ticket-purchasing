@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import { useCallback, useContext } from "react";
 import { EventsContext, TicketPurchasingContext } from "../contexts";
 import { Event } from "../contexts";
 import { EventCard } from "./EventCard";

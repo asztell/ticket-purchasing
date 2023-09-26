@@ -12,6 +12,14 @@
   }
 }
 
+.Delivery {
+  & h3 {
+    font-size: 17px;
+    font-family: "Averta", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+  }
+}
+
 .Payment-Section {
   display: flex;
   flex-direction: column;

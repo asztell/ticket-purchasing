@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomesPage /> render HomePage 1`] = `
+<div>
+  <div
+    class="Home-Page Page"
+  >
+    <div>
+      <button
+        class="LinkButton Events-Link-Button"
+      >
+        Check out Events &gt;&gt;
+      </button>
+    </div>
+  </div>
+</div>
+`;

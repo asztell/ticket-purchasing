@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EventCard /> render EventCard 1`] = `
+<div>
+  <div
+    class="Event-Card"
+  >
+    <div
+      class="Event-Name"
+    />
+    <div
+      class="Event-Date"
+    >
+      Invalid Date • Invalid Date • Invalid Date
+    </div>
+    <div
+      class="Event-Location"
+    />
+    <div
+      class="Event-Price"
+    >
+      Price: $0.00
+    </div>
+  </div>
+</div>
+`;
