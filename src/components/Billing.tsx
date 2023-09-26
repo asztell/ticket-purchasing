@@ -1,58 +1,83 @@
-import { useContext, useCallback } from "react";
+import { useState, useContext, useCallback } from "react";
 import { FormattedMessage } from "react-intl";
 import { TicketPurchasingContext } from "../contexts";
 import "./Billing.scss";
 
 export function Billing({ className }: { className?: string }) {
+  const [showSecurityCodeValidation, setShowSecurityCodeValidation] =
+    useState(false);
+  const [showCardNumberValidation, setShowCardNumberValidation] =
+    useState(false);
+
   const { cardInfo, updateCardInfo } = useContext(TicketPurchasingContext);
-
-  const handleNameOnCardChanges = useCallback(
+  console.log("showCardNumberValidation", showCardNumberValidation);
+  console.log(
+    `
+    !showCardNumberValidation &&
+                (cardInfo.securityCodeValid || cardInfo.securityCode === null)
+                  ? null
+                  : "Invalid"
+    `,
+    !showCardNumberValidation &&
+      (cardInfo.securityCodeValid || cardInfo.securityCode === null)
+      ? null
+      : "Invalid"
+  );
+  console.log(
+    "cardInfo.securityCodeValid || cardInfo.securityCode === null",
+    cardInfo.securityCodeValid || cardInfo.securityCode === null
+  );
+  console.log("cardInfo.securityCodeValid", cardInfo.securityCodeValid);
+  const [showExpirationDateValidation, setShowExpirationDateValidation] =
+    useState(false);
+  // console.log("cardInfo", cardInfo);
+  const handlePaymentChanges = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       updateCardInfo({
         ...cardInfo,
-        nameOnCard: event.target.value,
+        [event.target.className]: event.target.value,
       });
     },
     [cardInfo, updateCardInfo]
   );
 
-  const handleCardNumberChanges = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      updateCardInfo({
-        ...cardInfo,
-        cardNumber: event.target.value,
-      });
-    },
-    [cardInfo, updateCardInfo]
-  );
+  const handleCardNumberBlur = useCallback(() => {
+    setShowCardNumberValidation(true);
+  }, [setShowCardNumberValidation]);
 
-  const handleExpirationDateChanges = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      updateCardInfo({
-        ...cardInfo,
-        expirationDate: event.target.value,
-      });
-    },
-    [cardInfo, updateCardInfo]
-  );
+  function displayValidation(fieldName: string) {
+    switch (fieldName) {
+      case "cardNumber":
+        if (showCardNumberValidation) {
+          return cardInfo.cardType ? null : "";
+        } else {
+          return null;
+        }
+      case "securityCode":
+        if (showSecurityCodeValidation) {
+          return cardInfo.securityCodeValid ? null : "Invalid";
+        } else {
+          return null;
+        }
+      case "expirationDate":
+        if (showSecurityCodeValidation) {
+          return cardInfo.securityCodeValid ? null : "Invalid";
+        } else {
+          return null;
+        }
+      default:
+        return null;
+    }
+  }
 
-  //   const handleCardNumberBlur = useCallback(() => {
-  //     // TODO / MAYBE show credit card validation on blur
-  //   }, [cardNumber, validateCardNumber]);
+  const handleSecurityCodeBlur = useCallback(() => {
+    console.log("handleSecurityCodeBlur");
+    setShowSecurityCodeValidation(true);
+  }, [setShowSecurityCodeValidation]);
 
-  const handleSecurityCodeChanges = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      updateCardInfo({
-        ...cardInfo,
-        securityCode: event.target.value,
-      });
-    },
-    [cardInfo, updateCardInfo]
-  );
-
-  //   const handleSecurityCodeBlur = useCallback(() => {
-  //     // TODO / MAYBE show security code validation on blur
-  //   }, [securityCode, validateSecurityCode]);
+  const handleExpirationDateBlur = useCallback(() => {
+    setShowExpirationDateValidation(true);
+  }, [setShowExpirationDateValidation]);
 
   return (
     <div className={className}>
@@ -99,7 +124,8 @@ export function Billing({ className }: { className?: string }) {
           </label>
           <input
             type="text"
-            onChange={handleNameOnCardChanges}
+            onChange={handlePaymentChanges}
+            className="nameOnCard"
             // onBlur={handleCardNumberBlur}
             value={cardInfo.nameOnCard}
           />
@@ -110,37 +136,44 @@ export function Billing({ className }: { className?: string }) {
           </label>
           <input
             type="text"
-            onChange={handleCardNumberChanges}
-            // onBlur={handleCardNumberBlur}
+            onChange={handlePaymentChanges}
+            onBlur={handleCardNumberBlur}
+            className="cardNumber"
             value={cardInfo.cardNumber}
           />
-          <span className="Payment-Validation-Error">{cardInfo.cardType}</span>
+          <div className="Payment-Validation-Error">{cardInfo.cardType}</div>
         </div>
-        <div className="Payment-Section">
-          <label className="Payment-Form-Label">
-            <FormattedMessage id="Billing.Payment.Payment-Section.Expiration-Date.Label" />
-          </label>
-          <input
-            type="month"
-            onChange={handleExpirationDateChanges}
-            // onBlur={handleSecurityCodeBlur}
-            value={cardInfo.expirationDate}
-            maxLength={8}
-          />
-          <span>{cardInfo.expirationDateValid}</span>
-        </div>
-        <div className="Payment-Section">
-          <label className="Payment-Form-Label">
-            <FormattedMessage id="Billing.Payment.Payment-Section.Security-Code.Label" />
-          </label>
-          <input
-            type="text"
-            onChange={handleSecurityCodeChanges}
-            // onBlur={handleSecurityCodeBlur}
-            value={cardInfo.securityCode}
-            maxLength={3}
-          />
-          <span>{cardInfo.securityCodeValid}</span>
+        <div className="Payment-Section Expiration-Date-And-Security-Code">
+          <div className="Expiration-Date">
+            <label className="Payment-Form-Label">
+              <FormattedMessage id="Billing.Payment.Payment-Section.Expiration-Date.Label" />
+            </label>
+            <input
+              type="month"
+              onChange={handlePaymentChanges}
+              onBlur={handleExpirationDateBlur}
+              className="expirationDate"
+              value={cardInfo.expirationDate}
+              maxLength={8}
+            />
+            <div>{cardInfo.expirationDateValid}</div>
+          </div>
+          <div className="Security-Code">
+            <label className="Payment-Form-Label">
+              <FormattedMessage id="Billing.Payment.Payment-Section.Security-Code.Label" />
+            </label>
+            <input
+              type="text"
+              onChange={handlePaymentChanges}
+              onBlur={handleSecurityCodeBlur}
+              className="securityCode"
+              value={
+                cardInfo.securityCode !== null ? cardInfo.securityCode : ""
+              }
+              maxLength={3}
+            />
+            <div>{displayValidation("securityCode")}</div>
+          </div>
         </div>
         <div></div>
       </div>

@@ -8,20 +8,16 @@ exports[`<Quantity /> render Quantity 1`] = `
     <h2>
       Quantity
     </h2>
-    <div>
-      <button
-        id="decrement-btn"
-        style="margin-right: 10px;"
-      >
+    <div
+      class="Container"
+    >
+      <button>
         -
       </button>
       <span
-        id="counter-value"
+        class="Value"
       />
-      <button
-        id="increment-btn"
-        style="margin-left: 10px;"
-      >
+      <button>
         +
       </button>
     </div>

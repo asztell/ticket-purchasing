@@ -24,14 +24,15 @@ Logs to the node console.
 
 ### 2. Add unit testing
 
-- use Jest
+✓ use Jest
 
 ### 3. Add localization
 
-- use react-intl
+✓ use react-intl
 
 ### 4. Finish layout and styling
 
+- switch to scss modules
 - improve on raw components
 - improve on layout
 

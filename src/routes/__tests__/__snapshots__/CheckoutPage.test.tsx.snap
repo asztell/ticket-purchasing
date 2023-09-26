@@ -88,41 +88,45 @@ exports[`<CheckoutPage /> render CheckoutPage 1`] = `
             type="text"
             value="1234123412341234"
           />
-          <span
+          <div
             class="Payment-Validation-Error"
           >
             Test Card
-          </span>
+          </div>
         </div>
         <div
-          class="Payment-Section"
+          class="Payment-Section Expiration-Date-And-Security-Code"
         >
-          <label
-            class="Payment-Form-Label"
+          <div
+            class="Expiration-Date"
           >
-            Test Expiration Date
-          </label>
-          <input
-            maxlength="8"
-            type="month"
-            value="01/01/2021"
-          />
-          <span />
-        </div>
-        <div
-          class="Payment-Section"
-        >
-          <label
-            class="Payment-Form-Label"
+            <label
+              class="Payment-Form-Label"
+            >
+              Test Expiration Date
+            </label>
+            <input
+              maxlength="8"
+              type="month"
+              value="01/01/2021"
+            />
+            <div />
+          </div>
+          <div
+            class="Security-Code"
           >
-            Test Security Code
-          </label>
-          <input
-            maxlength="3"
-            type="text"
-            value="123"
-          />
-          <span />
+            <label
+              class="Payment-Form-Label"
+            >
+              Test Security Code
+            </label>
+            <input
+              maxlength="3"
+              type="text"
+              value="123"
+            />
+            <div />
+          </div>
         </div>
         <div />
       </div>

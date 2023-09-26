@@ -1,5 +1,6 @@
 import { useCallback, useContext } from "react";
 import { TicketPurchasingContext } from "../contexts";
+import "./Quantity.scss";
 
 export function Quantity() {
   const { ticketsCounter, updateTicketsCounter } = useContext(
@@ -17,22 +18,10 @@ export function Quantity() {
   return (
     <div className="Quantity">
       <h2>Quantity</h2>
-      <div>
-        <button
-          id="decrement-btn"
-          style={{ marginRight: "10px" }}
-          onClick={handleDecrement}
-        >
-          -
-        </button>
-        <span id="counter-value">{ticketsCounter}</span>
-        <button
-          id="increment-btn"
-          style={{ marginLeft: "10px" }}
-          onClick={handleIncrement}
-        >
-          +
-        </button>
+      <div className="Container">
+        <button onClick={handleDecrement}>-</button>
+        <span className="Value">{ticketsCounter}</span>
+        <button onClick={handleIncrement}>+</button>
       </div>
     </div>
   );

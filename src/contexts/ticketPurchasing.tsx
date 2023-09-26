@@ -5,13 +5,19 @@ export type CardInfoType = {
   nameOnCard: string;
   cardNumber: string;
   cardType: string;
-  securityCode: string;
+  securityCode: string | null;
+  // TODO: validations could be done on blur
+  // and extracted into their own CardValidation type
   securityCodeValid: boolean;
   expirationDate: string;
   expirationDateValid: boolean;
 };
 
 export type TicketPurchasingContextType = {
+  // TODO: selectedEvent and ticketsCounter could be saved in localStorage
+  // this would allow the user to come back to the page and continue
+  // it would also allow the user to refresh the page and continue
+  // or to save the page as a bookmark and come back to it later or share it
   selectedEvent: Event | undefined;
   ticketsCounter: number;
   cardInfo: CardInfoType;
@@ -36,11 +42,11 @@ export function TicketPurchasingProvider({
   );
   const [termsOfUseChecked, setTermsOfUseChecked] = useState(false);
 
-  const [cardInfo, setCardInfo] = useState({
+  const [cardInfo, setCardInfo] = useState<CardInfoType>({
     nameOnCard: "",
     cardNumber: "",
     cardType: "",
-    securityCode: "",
+    securityCode: null,
     securityCodeValid: false,
     expirationDate: "",
     expirationDateValid: false,
@@ -64,6 +70,7 @@ export function TicketPurchasingProvider({
     const { expirationDate, cardNumber, securityCode } = cardInfo;
     const cardType = validateCardNumber(cardNumber);
     const securityCodeValid =
+      securityCode !== null &&
       securityCode.match(new RegExp("^[0-9]{3,4}$")) !== null;
     const expirationDateValid = validateExpirationDate(expirationDate);
     setCardInfo({

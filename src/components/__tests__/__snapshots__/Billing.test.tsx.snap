@@ -83,39 +83,43 @@ exports[`<Billing /> render Billing 1`] = `
           type="text"
           value=""
         />
-        <span
+        <div
           class="Payment-Validation-Error"
         />
       </div>
       <div
-        class="Payment-Section"
+        class="Payment-Section Expiration-Date-And-Security-Code"
       >
-        <label
-          class="Payment-Form-Label"
+        <div
+          class="Expiration-Date"
         >
-          Test Expiration Date
-        </label>
-        <input
-          maxlength="8"
-          type="month"
-          value=""
-        />
-        <span />
-      </div>
-      <div
-        class="Payment-Section"
-      >
-        <label
-          class="Payment-Form-Label"
+          <label
+            class="Payment-Form-Label"
+          >
+            Test Expiration Date
+          </label>
+          <input
+            maxlength="8"
+            type="month"
+            value=""
+          />
+          <div />
+        </div>
+        <div
+          class="Security-Code"
         >
-          Test Security Code
-        </label>
-        <input
-          maxlength="3"
-          type="text"
-          value=""
-        />
-        <span />
+          <label
+            class="Payment-Form-Label"
+          >
+            Test Security Code
+          </label>
+          <input
+            maxlength="3"
+            type="text"
+            value=""
+          />
+          <div />
+        </div>
       </div>
       <div />
     </div>

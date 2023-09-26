@@ -24,25 +24,40 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  & > input[type="text"] {
-    background-color: rgb(255, 255, 255);
-    border-radius: 2px;
-    border: 1px solid rgb(153, 153, 153);
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 2px 0px inset;
-    font-size: 16px;
-    line-height: 35px;
-    margin-top: 4px;
-    outline: none;
-    padding: 4px 32px 4px 16px;
+  & input {
+    &[type="text"],
+    &[type="month"] {
+      background-color: rgb(255, 255, 255);
+      border-radius: 2px;
+      border: 1px solid rgb(153, 153, 153);
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 2px 0px inset;
+      font-size: 16px;
+      font-family: "Averta", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin-top: 4px;
+      outline: none;
+      padding: 4px 32px 4px 16px;
+      &:focus {
+        border-color: rgb(0, 132, 255);
+        box-shadow: rgba(0, 132, 255, 0.3) 0px 2px 8px 0px inset;
+      }
+    }
+    &[type="text"] {
+      line-height: 35px;
+    }
+    &[type="month"] {
+      line-height: 33.5px;
+    }
   }
-  & > input[type="text"]:focus {
-    border-color: rgb(0, 132, 255);
-    box-shadow: rgba(0, 132, 255, 0.3) 0px 2px 8px 0px inset;
-  }
-  & > input[type="month"] {
-    margin-top: 4px;
-    font-family: "Averta", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
+  &.Expiration-Date-And-Security-Code {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    & .Expiration-Date,
+    & .Security-Code {
+      flex-basis: calc(50% - 10px);
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 .Payment {
