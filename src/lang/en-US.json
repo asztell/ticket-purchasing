@@ -1,0 +1,42 @@
+{
+  "Billing": {
+    "Delivery": {
+      "Header": {
+        "Text": "Delivery"
+      },
+      "Sub-Header": {
+        "Text": "Mobile - Free"
+      },
+      "Description": {
+        "Text": "Your phone's your ticket. Locate your tickets in your account - or in your app. When you go mobile, your tickets will not be emailed to you or available for print."
+      }
+    },
+    "Payment": {
+      "Header": {
+        "Text": "Payment"
+      },
+      "Payment-Section": {
+        "Name-On-Card": {
+          "Text": "Name on Card"
+        },
+        "Card-Number": {
+          "Text": "Card Number"
+        },
+        "Expiration-Date": {
+          "Text": "Expiration Date"
+        },
+        "Security-Code": {
+          "Text": "Security Code"
+        }
+      }
+    },
+    "Ticket-Insurance": {
+      "Header": {
+        "Text": "Ticket Insurance"
+      },
+      "Description": {
+        "Text": "Get reimbursed up to 100% with Event Ticket Insurance for only $28.00 per ticket ($56.00 total). *Offer not available after purchase is finalized."
+      }
+    }
+  }
+}
