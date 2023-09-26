@@ -1,4 +1,5 @@
 import { useContext, useCallback } from "react";
+import { FormattedMessage } from "react-intl";
 import { TicketPurchasingContext } from "../contexts";
 import "./Billing.scss";
 
@@ -56,12 +57,14 @@ export function Billing({ className }: { className?: string }) {
   return (
     <div className={className}>
       <div className="Delivery">
-        <h2 className="Section-Header">Delivery</h2>
-        <h3>Mobile - Free</h3>
+        <h2 className="Section-Header">
+          <FormattedMessage id="Billing.Delivery.Header.Text" />
+        </h2>
+        <h3>
+          <FormattedMessage id="Billing.Delivery.Sub-Header.Text" />
+        </h3>
         <p>
-          Your phone's your ticket. Locate your tickets in your account - or in
-          your app. When you go mobile, your tickets will not be emailed to you
-          or available for print.
+          <FormattedMessage id="Billing.Delivery.Description.Text" />
         </p>
       </div>
       <div className="Payment">
