@@ -1,3 +1,10 @@
+.Link-Button {
+  font-size: 15px;
+  padding: 10px;
+  background-color: rgb(101, 106, 156);
+  border: none;
+  color: white;
+}
 .Left-Link-Button {
   float: left;
 }
@@ -5,7 +12,6 @@
   float: right;
 }
 .Events-Link-Button {
-  //   background: url("../../public/assets/images/events.jpeg");
   height: 300px;
   width: 80vw;
   cursor: pointer;

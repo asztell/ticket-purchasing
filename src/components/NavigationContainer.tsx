@@ -8,6 +8,6 @@ export function NavigationContainer({
   className?: string;
   children: React.ReactNode;
 }) {
-  className = classnames("Navigation-Container", className);
-  return <div className={className}>{children}</div>;
+  const combinedClassName = classnames("Navigation-Container", className);
+  return <div className={combinedClassName}>{children}</div>;
 }

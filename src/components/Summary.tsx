@@ -24,40 +24,34 @@ export function Summary({ className }: { className?: string }) {
   }, [termsOfUseChecked, updateTermsOfUseChecked]);
 
   const navigate = useNavigate();
-  const handleSubmit = useCallback(() => {
+  // const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(async () => {
     console.log("Submitting...");
     // TODO: start spinner (loading)
-
-    // TODO: if time permits refactor to try/catch with async/await
-    fetch("http://localhost:8080/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        event: selectedEvent,
-        tickets: ticketsCounter,
-        cardNumber: cardNumber,
-        securityCode: securityCode,
-      }),
-    })
-      .then((response) => {
-        console.log("/checkout response", response);
-        if (!response.ok) {
-          throw response;
-        }
-        return response.json();
-      })
-      .then((response) => {
-        navigate("/confirmation/success", { state: response });
-      })
-      .catch((error) => {
-        navigate("/confirmation/error", { state: error });
-        console.log(error);
-      })
-      .finally(() => {
-        // TODO: stop spinner/loading (in case user comes back to this page)
+    try {
+      const response = await fetch("http://localhost:8080/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          event: selectedEvent,
+          tickets: ticketsCounter,
+          cardNumber: cardNumber,
+          securityCode: securityCode,
+        }),
       });
+      console.log("/checkout response", response);
+      if (!response.ok) {
+        throw response;
+      }
+      const json = await response.json();
+      navigate("/confirmation", { state: json });
+    } catch (error) {
+      navigate("/confirmation", { state: error });
+      console.log(error);
+    }
+    // TODO: stop spinner/loading (in case user comes back to this page)
   }, [selectedEvent, ticketsCounter, navigate, cardNumber, securityCode]);
 
   return (
@@ -86,7 +80,8 @@ export function Summary({ className }: { className?: string }) {
             cardType === "Invalid" ||
             !securityCodeValid ||
             !expirationDateValid ||
-            !termsOfUseChecked
+            !termsOfUseChecked ||
+            ticketsCounter === 0
           }
         >
           Place Order

@@ -4,7 +4,7 @@ exports[`<LinkButton /> render LinkButton 1`] = `
 <div>
   <div>
     <button
-      class="LinkButton"
+      class="Link-Button"
     >
       Test Label
     </button>

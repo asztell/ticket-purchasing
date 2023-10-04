@@ -19,7 +19,7 @@ exports[`<EventsPage /> render EventsPage 1`] = `
             Choose an event:
           </label>
           <div
-            class="Event-Card Event"
+            class="Event-Card Selected-Event-Card Event"
           >
             <div
               class="Event-Name"
@@ -72,14 +72,14 @@ exports[`<EventsPage /> render EventsPage 1`] = `
     >
       <div>
         <button
-          class="LinkButton Events-Page-To-Home-Page Link-Button Left-Link-Button"
+          class="Link-Button Events-Page-To-Home-Page Left-Link-Button"
         >
           &lt; Home Page
         </button>
       </div>
       <div>
         <button
-          class="LinkButton Events-Page-To-Checkout-Page Link-Button Right-Link-Button"
+          class="Link-Button Events-Page-To-Checkout-Page Right-Link-Button"
         >
           Next &gt;
         </button>

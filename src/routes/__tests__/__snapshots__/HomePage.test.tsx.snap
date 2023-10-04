@@ -7,7 +7,7 @@ exports[`<HomesPage /> render HomePage 1`] = `
   >
     <div>
       <button
-        class="LinkButton Events-Link-Button"
+        class="Link-Button Events-Link-Button"
       >
         Check out Events &gt;&gt;
       </button>

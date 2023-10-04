@@ -71,6 +71,7 @@ exports[`<CheckoutPage /> render CheckoutPage 1`] = `
             Test Name on Card
           </label>
           <input
+            class="nameOnCard"
             type="text"
             value="Test User"
           />
@@ -85,6 +86,7 @@ exports[`<CheckoutPage /> render CheckoutPage 1`] = `
             Test Card Number
           </label>
           <input
+            class="cardNumber"
             type="text"
             value="1234123412341234"
           />
@@ -106,6 +108,7 @@ exports[`<CheckoutPage /> render CheckoutPage 1`] = `
               Test Expiration Date
             </label>
             <input
+              class="expirationDate"
               maxlength="8"
               type="month"
               value="01/01/2021"
@@ -121,6 +124,7 @@ exports[`<CheckoutPage /> render CheckoutPage 1`] = `
               Test Security Code
             </label>
             <input
+              class="securityCode"
               maxlength="3"
               type="text"
               value="123"
@@ -196,16 +200,16 @@ exports[`<CheckoutPage /> render CheckoutPage 1`] = `
   >
     <div>
       <button
-        class="LinkButton Checkout-To-Events Link-Button Left-Link-Button"
+        class="Link-Button Checkout-To-Events Left-Link-Button"
       >
-        Back to Events
+        Events
       </button>
     </div>
     <div>
       <button
-        class="LinkButton Checkout-To-Home-Page Link-Button Right-Link-Button"
+        class="Link-Button Checkout-To-Home-Page Right-Link-Button"
       >
-        Home Page
+        Home
       </button>
     </div>
   </div>

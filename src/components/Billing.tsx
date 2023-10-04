@@ -10,27 +10,9 @@ export function Billing({ className }: { className?: string }) {
     useState(false);
 
   const { cardInfo, updateCardInfo } = useContext(TicketPurchasingContext);
-  console.log("showCardNumberValidation", showCardNumberValidation);
-  console.log(
-    `
-    !showCardNumberValidation &&
-                (cardInfo.securityCodeValid || cardInfo.securityCode === null)
-                  ? null
-                  : "Invalid"
-    `,
-    !showCardNumberValidation &&
-      (cardInfo.securityCodeValid || cardInfo.securityCode === null)
-      ? null
-      : "Invalid"
-  );
-  console.log(
-    "cardInfo.securityCodeValid || cardInfo.securityCode === null",
-    cardInfo.securityCodeValid || cardInfo.securityCode === null
-  );
-  console.log("cardInfo.securityCodeValid", cardInfo.securityCodeValid);
   const [showExpirationDateValidation, setShowExpirationDateValidation] =
     useState(false);
-  // console.log("cardInfo", cardInfo);
+
   const handlePaymentChanges = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       updateCardInfo({
@@ -71,7 +53,6 @@ export function Billing({ className }: { className?: string }) {
   }
 
   const handleSecurityCodeBlur = useCallback(() => {
-    console.log("handleSecurityCodeBlur");
     setShowSecurityCodeValidation(true);
   }, [setShowSecurityCodeValidation]);
 

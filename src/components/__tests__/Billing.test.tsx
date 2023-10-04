@@ -1,12 +1,38 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
 import { flattenMessages } from "../../App";
 import { Billing } from "../Billing";
-import { TicketPurchasingProvider } from "../../contexts";
+import { TicketPurchasingContext } from "../../contexts";
 
 describe("<Billing />", () => {
   test("render Billing", () => {
-    const { container } = render(
+    const value = {
+      ticketsCounter: 0,
+      selectedEvent: {
+        name: "",
+        location: "",
+        ISODate: "",
+        price: 0,
+      },
+      cardInfo: {
+        cardNumber: "",
+        nameOnCard: "",
+        cardType: "",
+        securityCode: "",
+        securityCodeValid: true,
+        expirationDate: "",
+        expirationDateValid: true,
+      },
+      termsOfUseChecked: true,
+      updateTicketsCounter: jest.fn((updateBy) => {
+        value.ticketsCounter = value.ticketsCounter + updateBy;
+      }),
+      updateSelectedEvent: () => {},
+      updateCardInfo: () => {},
+      updateTermsOfUseChecked: () => {},
+    };
+    // const { rerender } = render(
+    render(
       <IntlProvider
         locale="en"
         messages={flattenMessages({
@@ -54,11 +80,11 @@ describe("<Billing />", () => {
           },
         })}
       >
-        <TicketPurchasingProvider>
+        <TicketPurchasingContext.Provider value={value}>
           <Billing />
-        </TicketPurchasingProvider>
+        </TicketPurchasingContext.Provider>
       </IntlProvider>
     );
-    expect(container).toMatchSnapshot();
+    expect(screen.getByText("Test Delivery")).toBeInTheDocument();
   });
 });

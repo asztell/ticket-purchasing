@@ -41,14 +41,14 @@ describe("EventsContext", () => {
       ok: true,
       json: jest.fn().mockResolvedValueOnce(responseValue),
     };
-    fetchSpy.mockResolvedValueOnce(response);
-    await act(async () => {
-      render(
-        <EventsProvider>
-          <TestComponent />
-        </EventsProvider>
-      );
-    });
+    const promise = Promise.resolve(response);
+    fetchSpy.mockReturnValueOnce(promise);
+    render(
+      <EventsProvider>
+        <TestComponent />
+      </EventsProvider>
+    );
+    await act(() => promise);
     expect(screen.getByTestId("events")).toHaveTextContent(
       JSON.stringify(responseValue)
     );
@@ -56,14 +56,14 @@ describe("EventsContext", () => {
   test("should throw error", async () => {
     const responseValue: [] = [];
     const response = 'Error: "Error message"';
-    fetchSpy.mockResolvedValueOnce(response);
-    await act(async () => {
-      render(
-        <EventsProvider>
-          <TestComponent />
-        </EventsProvider>
-      );
-    });
+    const promise = Promise.reject(response);
+    fetchSpy.mockReturnValueOnce(promise);
+    render(
+      <EventsProvider>
+        <TestComponent />
+      </EventsProvider>
+    );
+    await act(() => promise.catch(() => {}));
     expect(screen.getByTestId("events")).toHaveTextContent(
       JSON.stringify(responseValue)
     );

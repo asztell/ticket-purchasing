@@ -12,11 +12,11 @@ export function Events() {
 
   const handleEventChange = useCallback(
     (event: Event) => {
+      console.log("handleEventChange event", event);
       updateSelectedEvent(event);
     },
     [updateSelectedEvent]
   );
-
   return (
     <div className="Events">
       <h2>Events</h2>
@@ -24,11 +24,15 @@ export function Events() {
       <div>
         <label htmlFor="event-select">Choose an event:</label>
         {events.map((event: Event) => {
+          // console.log(selectedEvent);
+          // console.log(event);
+          console.log("selectedEvent === event", selectedEvent === event);
           return (
             <EventCard
               key={event.name}
               event={event}
-              selected={selectedEvent === event}
+              // selected={selectedEvent === event}
+              selected={JSON.stringify(selectedEvent) === JSON.stringify(event)}
               className="Event"
               onEventChange={handleEventChange}
             />

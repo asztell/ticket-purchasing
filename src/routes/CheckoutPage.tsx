@@ -10,12 +10,10 @@ import "./CheckoutPage.scss";
 export function CheckoutPage() {
   const checkoutToEventsClassName = classnames(
     "Checkout-To-Events",
-    "Link-Button",
     "Left-Link-Button"
   );
   const checkoutToHomePageClassName = classnames(
     "Checkout-To-Home-Page",
-    "Link-Button",
     "Right-Link-Button"
   );
   return (
@@ -27,12 +25,12 @@ export function CheckoutPage() {
       <NavigationContainer>
         <LinkButton
           to="/events"
-          label="Back to Events"
+          label="Events"
           className={checkoutToEventsClassName}
         />
         <LinkButton
           to="/"
-          label="Home Page"
+          label="Home"
           className={checkoutToHomePageClassName}
         />
       </NavigationContainer>

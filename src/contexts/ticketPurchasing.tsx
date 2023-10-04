@@ -58,8 +58,18 @@ export function TicketPurchasingProvider({
     );
   }, []);
 
-  const updateSelectedEvent = useCallback((selectedEvent: Event) => {
-    setSelectedEvent(selectedEvent);
+  console.log("selectedEvent", selectedEvent);
+  const updateSelectedEvent = useCallback((newlySelectedEvent: Event) => {
+    console.log(
+      "JSON.stringify(newlySelectedEvent)",
+      JSON.stringify(newlySelectedEvent)
+    );
+    console.log("JSON.stringify(selectedEvent)", JSON.stringify(selectedEvent));
+    console.log(
+      "newlySelectedEvent === selectedEvent",
+      JSON.stringify(newlySelectedEvent) === JSON.stringify(selectedEvent)
+    );
+    setSelectedEvent(newlySelectedEvent);
   }, []);
 
   const updateTermsOfUseChecked = useCallback((termsOfUseChecked: boolean) => {
@@ -110,25 +120,34 @@ export function TicketPurchasingProvider({
 }
 
 export function validateCardNumber(cardNumber: string) {
-  const visa = new RegExp("^4[0-9]{12}(?:[0-9]{3})?$");
-  if (cardNumber.match(visa) !== null) return "Visa";
-  const mastercard = new RegExp(
-    "^5[1-5][0-9]{14}|^(222[1-9]|22[3-9]\\d|2[3-6]\\d{2}|27[0-1]\\d|2720)[0-9]{12}$"
-  );
-  if (cardNumber.match(mastercard) !== null) return "Mastercard";
-  const amex = new RegExp("^3[47][0-9]{13}$");
-  if (cardNumber.match(amex)) return "American Express";
-  const discover = new RegExp("^6(?:011|5[0-9]{2})[0-9]{12}$");
-  if (cardNumber.match(discover)) return "Discover";
-  const dinersClub = new RegExp("^3(?:0[0-5]|[68][0-9])[0-9]{11}$");
-  if (cardNumber.match(dinersClub)) return "Diners Club";
-  if (cardNumber.length === 0) return "";
+  if (/^4[0-9]{12}(?:[0-9]{3})?$/.test(cardNumber)) {
+    return "Visa";
+  }
+  if (
+    /^5[1-5][0-9]{14}|^(222[1-9]|22[3-9]\\d|2[3-6]\\d{2}|27[0-1]\\d|2720)[0-9]{12}$/.test(
+      cardNumber
+    )
+  ) {
+    return "Mastercard";
+  }
+  if (/^3[47][0-9]{13}$/.test(cardNumber)) {
+    return "American Express";
+  }
+  if (/^6(?:011|5[0-9]{2})[0-9]{12}$/.test(cardNumber)) {
+    return "Discover";
+  }
+  if (/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/.test(cardNumber)) {
+    return "Diners Club";
+  }
+  if (cardNumber.length === 0) {
+    return "";
+  }
   return "Invalid";
 }
 
 export function validateExpirationDate(expirationDate: string) {
   const expirationDateValid =
-    expirationDate.match(new RegExp("^([0-9]{4})-(0[1-9]|1[0-2])$")) !== null &&
+    /^([0-9]{4})-(0[1-9]|1[0-2])$/.test(expirationDate) &&
     new Date(expirationDate) > new Date();
   return expirationDateValid;
 }

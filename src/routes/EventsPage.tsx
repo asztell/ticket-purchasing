@@ -14,12 +14,10 @@ export function EventsPage() {
 
   const eventsPageToHomePageClassName = classnames(
     "Events-Page-To-Home-Page",
-    "Link-Button",
     "Left-Link-Button"
   );
   const eventsPageToCheckoutPageClassName = classnames(
     "Events-Page-To-Checkout-Page",
-    "Link-Button",
     "Right-Link-Button"
   );
 

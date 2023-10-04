@@ -22,7 +22,7 @@ export function LinkButton({
     navigate(to);
   }, [onClick, navigate, to]);
 
-  const linkClassName = classnames("LinkButton", className);
+  const linkClassName = classnames("Link-Button", className);
 
   return (
     <div>
