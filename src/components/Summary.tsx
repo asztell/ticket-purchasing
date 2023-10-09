@@ -28,7 +28,8 @@ export function Summary({ className }: { className?: string }) {
     console.log("Submitting...");
     // TODO: start spinner (loading)
     try {
-      const response = await fetch("http://localhost:8080/checkout", {
+      const url = `${document.location.origin}/checkout`;
+      const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -22,7 +22,8 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/events`)
+    const url = `${document.location.origin}/events`;
+    fetch(url)
       .then((res) => {
         if (!res.ok) {
           throw res;
