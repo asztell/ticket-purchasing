@@ -4,16 +4,20 @@
   "private": true,
   "engines": {
     "node": "18.x",
-    "npm": ">=9.0.0"
+    "npm": "8.x"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "body-parser": "^1.20.2",
     "classnames": "^2.3.2",
     "concurrently": "^8.2.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "express-openid-connect": "^2.17.0",
     "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-intl": "^6.4.7",
@@ -23,12 +27,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run start:server\" \"npm run start:ui\"",
-    "start:ui": "PORT=3000 react-scripts start",
-    "start:server": "nodemon server/index.js",
     "build": "npm i && react-scripts build",
-    "test": "react-scripts test --watchAll --coverage=true --runInBand --detectOpenHandles",
-    "eject": "react-scripts eject"
+    "deploy:vercel": "concurrently \"npm run start:server\" \"react-scripts start\"",
+    "eject": "react-scripts eject",
+    "start:server": "nodemon server/index.js",
+    "start:ui": "PORT=3000 react-scripts start",
+    "start": "concurrently \"npm run start:server\" \"npm run start:ui\"",
+    "test": "react-scripts test --watchAll --coverage=true --runInBand --detectOpenHandles"
   },
   "eslintConfig": {
     "extends": [
@@ -57,10 +62,6 @@
     "@types/node": "^20.6.3",
     "@types/react": "^18.2.22",
     "@types/react-dom": "18.2.0",
-    "body-parser": "^1.20.2",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "nodemon": "^3.0.1",
     "typescript": "^4.0.0"
   },
   "jest": {
