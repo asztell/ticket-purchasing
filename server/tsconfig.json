@@ -4,7 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
+    // "isolatedModules": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
@@ -15,5 +15,7 @@
     "strict": true,
     "target": "es2016"
   },
-  "include": ["index.ts", "routes.ts"]
+  "types": ["node"],
+  "typeRoots": ["node_modules/@types", "types"],
+  "include": ["index.ts", "src/routes.ts"]
 }

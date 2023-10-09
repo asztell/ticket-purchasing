@@ -1,7 +1,7 @@
 const path = require("path");
 const { requiresAuth } = require("express-openid-connect");
 
-const routes = (app, fs) => {
+module.exports = (app, fs) => {
   const dataPath = path.resolve(__dirname, "./data/events.json");
 
   app.get("/events", (req, res) => {
@@ -38,5 +38,3 @@ const routes = (app, fs) => {
     });
   });
 };
-
-module.exports = routes;
