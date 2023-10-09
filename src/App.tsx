@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { IntlProvider } from "react-intl";
-import { Auth0Provider } from "@auth0/auth0-react";
+// import { Auth0Provider } from "@auth0/auth0-react";
 import messages from "./lang/en-US.json";
 import { TicketPurchasingProvider, EventsProvider } from "./contexts";
 import { Header } from "./components";
@@ -14,7 +14,7 @@ export function App() {
     <IntlProvider locale={navigator.language} messages={flattenedMessages}>
       <EventsProvider>
         <TicketPurchasingProvider>
-          <Auth0Provider
+          {/* <Auth0Provider
             domain={process.env.REACT_APP_AUTH0_DOMAIN!}
             clientId={process.env.REACT_APP_AUTH0_CLIENT_ID!}
             authorizationParams={{
@@ -22,14 +22,14 @@ export function App() {
               // scope: "openid profile email",
               redirect_uri: process.env.REACT_APP_AUTH0_REDIRECT_URI,
             }}
-          >
-            <Header />
-            <div className="App">
-              <div className="App-Content">
-                <Outlet />
-              </div>
+          > */}
+          <Header />
+          <div className="App">
+            <div className="App-Content">
+              <Outlet />
             </div>
-          </Auth0Provider>
+          </div>
+          {/* </Auth0Provider> */}
         </TicketPurchasingProvider>
       </EventsProvider>
     </IntlProvider>

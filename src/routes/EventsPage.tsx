@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import classnames from "classnames";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 import {
   Events,
   Quantity,
@@ -15,8 +15,8 @@ export function EventsPage() {
   const [queryParams] = useQueryParams();
   const { eventId, ticketsCount } = getQueryParams(queryParams);
   const disabledLinkButton = !eventId || !ticketsCount;
-  const { isAuthenticated } = useAuth0();
-  const toCkeckoutPage = isAuthenticated ? "/checkout" : "/login";
+  // const { isAuthenticated } = useAuth0();
+  // const toCkeckoutPage = isAuthenticated ? "/checkout" : "/login";
 
   const eventsPageToHomePageClassName = classnames(
     "Events-Page-To-Home-Page",

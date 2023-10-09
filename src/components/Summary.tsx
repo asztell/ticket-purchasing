@@ -28,7 +28,8 @@ export function Summary({ className }: { className?: string }) {
     console.log("Submitting...");
     // TODO: start spinner (loading)
     try {
-      const url = `${document.location.origin}/checkout`;
+      // const url = `${document.location.origin}/checkout`;
+      const url = `${process.env.REACT_APP_API}/checkout`;
       const response = await fetch(url, {
         method: "POST",
         headers: {

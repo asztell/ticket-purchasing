@@ -9,6 +9,7 @@ export function Events() {
   const { events, error } = useContext(EventsContext);
   const [queryParams, setQueryParams] = useQueryParams();
   const { eventId } = getQueryParams(queryParams);
+  console.log("Events", events);
 
   const handleEventChange = useCallback(
     (event: Event) => {

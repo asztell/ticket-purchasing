@@ -22,7 +22,8 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const url = `${document.location.origin}/events`;
+    // const url = `${document.location.origin}/events`;
+    const url = `${process.env.REACT_APP_API}/events`;
     fetch(url)
       .then((res) => {
         if (!res.ok) {
@@ -31,6 +32,7 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
         return res.json();
       })
       .then((result) => {
+        console.log("events", result);
         setEvents(result);
       })
       .catch((error) => {

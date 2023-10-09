@@ -18,8 +18,11 @@ export function LinkButton({
   className?: string;
   onClick?: () => void;
 }) {
+  console.log("LinkButton");
   const navigate = useNavigate();
   const handleButtonClick = useCallback(() => {
+    console.log("handleButtonClick onClick", onClick);
+    console.log("handleButtonClick to", to);
     onClick && onClick();
     to && navigate(to);
   }, [onClick, navigate, to]);
