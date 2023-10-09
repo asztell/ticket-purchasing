@@ -1,0 +1,14 @@
+.Header {
+  background-color: rgb(2, 108, 223);
+  & .HeaderContainer {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    & .Nav {
+      display: flex;
+    }
+  }
+}

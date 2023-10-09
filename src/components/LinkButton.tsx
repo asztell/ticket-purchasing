@@ -4,14 +4,16 @@ import classnames from "classnames";
 import "./LinkButton.scss";
 
 export function LinkButton({
-  to,
+  to = null,
   disabled,
+  show = true,
   label,
   className,
   onClick,
 }: {
-  to: string;
+  to: string | null;
   disabled?: boolean;
+  show?: boolean;
   label: string;
   className?: string;
   onClick?: () => void;
@@ -19,10 +21,14 @@ export function LinkButton({
   const navigate = useNavigate();
   const handleButtonClick = useCallback(() => {
     onClick && onClick();
-    navigate(to);
+    to && navigate(to);
   }, [onClick, navigate, to]);
 
   const linkClassName = classnames("Link-Button", className);
+
+  if (!show) {
+    return null;
+  }
 
   return (
     <div>

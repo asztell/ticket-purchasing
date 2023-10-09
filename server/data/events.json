@@ -1,23 +1,27 @@
 [
   {
+    "id": "1",
     "name": "The Weeknd in concert",
     "ISODate": "2024-02-02T00:00:00.000Z",
     "price": 400,
     "location": "TD Garden - Boston, Massachusetts"
   },
   {
+    "id": "2",
     "name": "Lady Gaga in concert",
     "ISODate": "2024-01-02T00:00:00.000Z",
     "price": 400,
     "location": "TD Garden - Boston, Massachusetts"
   },
   {
+    "id": "3",
     "name": "Metallica in concert",
     "ISODate": "2024-01-03T00:00:00.000Z",
     "price": 400,
     "location": "TD Garden - Boston, Massachusetts"
   },
   {
+    "id": "4",
     "name": "Eminem live!",
     "ISODate": "2024-01-04T00:00:00.000Z",
     "price": 500,

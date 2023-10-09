@@ -1,22 +1,28 @@
 import { useCallback, useContext } from "react";
-import { EventsContext, TicketPurchasingContext } from "../contexts";
+import { EventsContext } from "../contexts";
 import { Event } from "../contexts";
 import { EventCard } from "./EventCard";
+import { useQueryParams, getQueryParams } from "../hooks/useQueryParams";
 import "./Events.scss";
 
 export function Events() {
-  const { selectedEvent, updateSelectedEvent } = useContext(
-    TicketPurchasingContext
-  );
   const { events, error } = useContext(EventsContext);
+  const [queryParams, setQueryParams] = useQueryParams();
+  const { eventId } = getQueryParams(queryParams);
 
   const handleEventChange = useCallback(
     (event: Event) => {
-      console.log("handleEventChange event", event);
-      updateSelectedEvent(event);
+      setQueryParams(
+        (searchParams: URLSearchParams) => {
+          searchParams.set("eventId", event.id);
+          return searchParams;
+        },
+        { replace: true }
+      );
     },
-    [updateSelectedEvent]
+    [setQueryParams]
   );
+
   return (
     <div className="Events">
       <h2>Events</h2>
@@ -24,15 +30,11 @@ export function Events() {
       <div>
         <label htmlFor="event-select">Choose an event:</label>
         {events.map((event: Event) => {
-          // console.log(selectedEvent);
-          // console.log(event);
-          console.log("selectedEvent === event", selectedEvent === event);
           return (
             <EventCard
               key={event.name}
               event={event}
-              // selected={selectedEvent === event}
-              selected={JSON.stringify(selectedEvent) === JSON.stringify(event)}
+              selected={eventId === event.id}
               className="Event"
               onEventChange={handleEventChange}
             />

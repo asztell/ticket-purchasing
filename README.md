@@ -2,19 +2,9 @@
 
 In the project directory, you can run:
 
-### `npm start`
+## `npm run start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm run start:server`
-
-Runs the node server in the development mode on port 8080.\
-Logs to the node console.
-
-(CAVEAT: .env file would normally be ignored, it was added as a convenience for the reviewers)
-
-## TODO:
+## TODO
 
 ### 1. Improve the general flow
 
@@ -32,7 +22,7 @@ Logs to the node console.
 
 ### 4. Finish layout and styling
 
-- switch to scss modules
+- switch to scss modules ?
 - improve on raw components
 - improve on layout
 

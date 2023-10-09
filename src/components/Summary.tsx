@@ -24,7 +24,6 @@ export function Summary({ className }: { className?: string }) {
   }, [termsOfUseChecked, updateTermsOfUseChecked]);
 
   const navigate = useNavigate();
-  // const handleSubmit = useCallback(() => {
   const handleSubmit = useCallback(async () => {
     console.log("Submitting...");
     // TODO: start spinner (loading)
@@ -64,13 +63,13 @@ export function Summary({ className }: { className?: string }) {
         <p>Security Code: {securityCode}</p>
         <input
           type="checkbox"
-          // onClick={handleClickTermsOfUse}
           onChange={handleChangeTermsOfUse}
           checked={termsOfUseChecked}
           name="termsOfUse"
         />
         <label htmlFor="termsOfUse">
-          I have read and agree to the current <a href="#">Terms of Use</a>
+          I have read and agree to the current{" "}
+          <a href="https://google.com">Terms of Use</a>
         </label>
         <button
           className="Purchase-Tickets-Button"

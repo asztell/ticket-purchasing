@@ -4,6 +4,7 @@ import { EventsPage } from "./EventsPage";
 import { CheckoutPage } from "./CheckoutPage";
 import { HomePage } from "./HomePage";
 import { ConfirmationPage } from "./ConfirmationPage";
+import { ProfilePage } from "./ProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -19,12 +20,10 @@ export const router = createBrowserRouter([
         element: <EventsPage />,
       },
       {
-        // this page might be in a completely different app
-        // that has increased security requirements
-        // and is hosted on a different domain
-        // so for this app in real life a browser redirect would be used
-        // e.g. with a backend provided token added securely to one of the headers
-        // or in the query string
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
         path: "/checkout",
         element: <CheckoutPage />,
       },

@@ -60,15 +60,15 @@ export function TicketPurchasingProvider({
 
   console.log("selectedEvent", selectedEvent);
   const updateSelectedEvent = useCallback((newlySelectedEvent: Event) => {
-    console.log(
-      "JSON.stringify(newlySelectedEvent)",
-      JSON.stringify(newlySelectedEvent)
-    );
-    console.log("JSON.stringify(selectedEvent)", JSON.stringify(selectedEvent));
-    console.log(
-      "newlySelectedEvent === selectedEvent",
-      JSON.stringify(newlySelectedEvent) === JSON.stringify(selectedEvent)
-    );
+    // console.log(
+    //   "JSON.stringify(newlySelectedEvent)",
+    //   JSON.stringify(newlySelectedEvent)
+    // );
+    // console.log("JSON.stringify(selectedEvent)", JSON.stringify(selectedEvent));
+    // console.log(
+    //   "newlySelectedEvent === selectedEvent",
+    //   JSON.stringify(newlySelectedEvent) === JSON.stringify(selectedEvent)
+    // );
     setSelectedEvent(newlySelectedEvent);
   }, []);
 

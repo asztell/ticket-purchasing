@@ -14,10 +14,10 @@ app.use(cors());
 routes(app, fs);
 
 dotenv.config();
-const port = process.env.SERVER_PORT;
-const server = app.listen(port, () => {
+const { SERVER_PORT } = process.env;
+app.listen(SERVER_PORT, () => {
   console.log(
     `[server]: Server is running at http://localhost:%s`,
-    server.address().port
+    SERVER_PORT
   );
 });
