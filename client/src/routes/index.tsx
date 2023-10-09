@@ -19,10 +19,10 @@ export const router = createBrowserRouter([
         path: "/events",
         element: <EventsPage />,
       },
-      // {
-      //   path: "/profile",
-      //   element: <ProfilePage />,
-      // },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
       {
         path: "/checkout",
         element: <CheckoutPage />,
