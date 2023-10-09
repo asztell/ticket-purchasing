@@ -36,6 +36,7 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
         setEvents(result);
       })
       .catch((error) => {
+        console.error(error);
         setError(error);
       });
   }, [setEvents]);
