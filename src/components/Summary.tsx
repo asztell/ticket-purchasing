@@ -30,6 +30,7 @@ export function Summary({ className }: { className?: string }) {
     try {
       // const url = `${document.location.origin}/checkout`;
       const url = `${process.env.REACT_APP_API}/checkout`;
+      console.log("url", url);
       const response = await fetch(url, {
         method: "POST",
         headers: {

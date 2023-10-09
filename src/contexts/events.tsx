@@ -24,6 +24,7 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // const url = `${document.location.origin}/events`;
     const url = `${process.env.REACT_APP_API}/events`;
+    console.log("url", url);
     fetch(url)
       .then((res) => {
         if (!res.ok) {
