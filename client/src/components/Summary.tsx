@@ -81,8 +81,8 @@ export function Summary({ className }: { className?: string }): JSX.Element {
           disabled={
             cardType === '' ||
             cardType === 'Invalid' ||
-            securityCodeValid === false ||
-            expirationDateValid === false ||
+            securityCodeValid ||
+            expirationDateValid ||
             !termsOfUseChecked ||
             ticketsCounter === 0
           }
