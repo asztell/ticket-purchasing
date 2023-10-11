@@ -22,10 +22,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "test": "react-scripts test --watchAll --coverage=true --runInBand --detectOpenHandles",
-    "build": "npm i && react-scripts build",
-    "eject": "react-scripts eject"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "build": "npm i && react-scripts build"
   },
   "browserslist": {
     "production": [
