@@ -1,26 +1,29 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import "./AuthButton.scss";
+import { useAuth0 } from '@auth0/auth0-react'
+import './AuthButton.scss'
 
-export function AuthButton() {
-  const { logout, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
-  const label = isAuthenticated ? "Log Out" : "Log In";
-  // const label = "inactive";
+export function AuthButton(): JSX.Element | null {
+  const { logout, loginWithRedirect, isAuthenticated, isLoading } = useAuth0()
+  const label = isAuthenticated ? 'Log Out' : 'Log In'
 
-  function onClick() {
+  async function onClick(): Promise<void> {
     if (!isAuthenticated) {
-      loginWithRedirect();
+      try {
+        await loginWithRedirect()
+      } catch (e) {
+        console.log(e)
+      }
     } else {
-      logout({ logoutParams: { returnTo: window.location.origin } });
+      await logout({ logoutParams: { returnTo: window.location.origin } })
     }
   }
 
   if (isLoading) {
-    return null;
+    return null
   }
 
   return (
-    <button className="AuthButton" onClick={onClick}>
+    <button className='AuthButton' onClick={onClick}>
       {label}
     </button>
-  );
+  )
 }

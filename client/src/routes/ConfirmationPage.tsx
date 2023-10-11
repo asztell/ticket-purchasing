@@ -1,10 +1,10 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom'
 
-export function ConfirmationPage() {
+export function ConfirmationPage(): JSX.Element {
   return (
-    <div className="ConfirmationPage Page">
+    <div className='ConfirmationPage Page'>
       <div>ConfirmationPage</div>
       <Outlet />
     </div>
-  );
+  )
 }

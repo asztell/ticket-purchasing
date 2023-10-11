@@ -1,13 +1,13 @@
-import classnames from "classnames";
-import "./NavigationContainer.scss";
+import classnames from 'classnames'
+import './NavigationContainer.scss'
 
 export function NavigationContainer({
   className,
-  children,
+  children
 }: {
-  className?: string;
-  children: React.ReactNode;
-}) {
-  const combinedClassName = classnames("Navigation-Container", className);
-  return <div className={combinedClassName}>{children}</div>;
+  className?: string
+  children: React.ReactNode
+}): JSX.Element {
+  const combinedClassName = classnames('Navigation-Container', className)
+  return <div className={combinedClassName}>{children}</div>
 }

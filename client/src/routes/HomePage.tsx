@@ -1,13 +1,13 @@
-import { LinkButton } from "../components";
+import { LinkButton } from '../components'
 
-export function HomePage() {
+export function HomePage(): JSX.Element {
   return (
-    <div className="Home-Page Page">
+    <div className='Home-Page Page'>
       <LinkButton
-        to="/events"
-        label="Check out Events >>"
-        className="Events-Link-Button"
+        to='/events'
+        label='Check out Events >>'
+        className='Events-Link-Button'
       />
     </div>
-  );
+  )
 }

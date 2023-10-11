@@ -1,19 +1,19 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useRef } from 'react'
 import {
-  useSearchParams,
+  useSearchParams
   // URLSearchParamsInit,
   // ParamKeyValuePair,
-} from "react-router-dom";
+} from 'react-router-dom'
 
-export function useQueryParams() {
-  const [queryParams, setQueryParams] = useSearchParams({});
-  const setQueryParamsRef = useRef(setQueryParams);
-  setQueryParamsRef.current = setQueryParams;
+export function useQueryParams(): [URLSearchParams, (...args: any) => void] {
+  const [queryParams, setQueryParams] = useSearchParams({})
+  const setQueryParamsRef = useRef(setQueryParams)
+  setQueryParamsRef.current = setQueryParams
 
   const refedSetQueryParams = useCallback(
     (...args: any) => {
       // console.log("useSearchParams", args);
-      return setQueryParamsRef.current(...args);
+      setQueryParamsRef.current(...args)
     },
 
     // (...args: [Function, {replace: true}]) => setSearchParamsRef.current(...args),
@@ -45,14 +45,16 @@ export function useQueryParams() {
     // },
 
     []
-  );
-  return [queryParams, refedSetQueryParams] as const;
+  )
+  return [queryParams, refedSetQueryParams]
 }
 
-export function getQueryParams(searchParams: URLSearchParams) {
-  const params = {} as Record<string, string>;
+export function getQueryParams(
+  searchParams: URLSearchParams
+): Record<string, string> {
+  const params = {}
   searchParams.forEach((value, key) => {
-    params[key] = value;
-  });
-  return params;
+    params[key] = value
+  })
+  return params
 }

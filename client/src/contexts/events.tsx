@@ -1,54 +1,60 @@
-import { createContext, useEffect, useMemo, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from 'react'
 
 export type Event = {
-  id: string;
-  name: string;
-  location: string;
-  ISODate: string;
-  price: number;
-};
+  id: string
+  name: string
+  location: string
+  ISODate: string
+  price: number
+}
 
 export type EventsContextType = {
-  events: Event[];
-  error: string | null;
-};
+  events: Event[]
+  error: string | null
+}
 
-export const EventsContext = createContext<EventsContextType>(
-  {} as EventsContextType
-);
+export const EventsContext = createContext<EventsContextType>({
+  events: [],
+  error: null
+})
 
-export function EventsProvider({ children }: { children: React.ReactNode }) {
-  const [events, setEvents] = useState<Event[]>([]);
-  const [error, setError] = useState<string | null>(null);
+export function EventsProvider({
+  children
+}: {
+  children: React.ReactNode
+}): JSX.Element {
+  const [events, setEvents] = useState<Event[]>([])
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const url = `${process.env.REACT_APP_API}/events`;
-    console.log("url", url);
+    const url = `${process.env.REACT_APP_API}/events`
+    console.log('url', url)
     fetch(url)
-      .then((res) => {
+      .then(async (res) => {
         if (!res.ok) {
-          throw res;
+          console.error(res)
+          throw new Error('Could not fetch events')
         }
-        return res.json();
+        return await res.json()
       })
       .then((result) => {
-        console.log("events", result);
-        setEvents(result);
+        console.log('events', result)
+        setEvents(result)
       })
       .catch((error) => {
-        console.error(error);
-        setError(error);
-      });
-  }, [setEvents]);
+        console.error(error)
+        setError(error)
+      })
+  }, [setEvents])
 
   const value = useMemo(() => {
     return {
       events,
-      error,
-    };
-  }, [events, error]);
+      error
+    }
+  }, [events, error])
 
   return (
     <EventsContext.Provider value={value}>{children}</EventsContext.Provider>
-  );
+  )
 }

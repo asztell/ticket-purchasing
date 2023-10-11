@@ -1,87 +1,88 @@
-import { useContext, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import { TicketPurchasingContext } from "../contexts";
-import "./Summary.scss";
+import { useContext, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { TicketPurchasingContext } from '../contexts'
+import './Summary.scss'
 
-export function Summary({ className }: { className?: string }) {
+export function Summary({ className }: { className?: string }): JSX.Element {
   const {
     selectedEvent,
     ticketsCounter,
     cardInfo,
     termsOfUseChecked,
-    updateTermsOfUseChecked,
-  } = useContext(TicketPurchasingContext);
+    updateTermsOfUseChecked
+  } = useContext(TicketPurchasingContext)
   const {
     cardType,
     securityCodeValid,
     expirationDateValid,
     cardNumber,
-    securityCode,
-  } = cardInfo;
+    securityCode
+  } = cardInfo
 
   const handleChangeTermsOfUse = useCallback(() => {
-    updateTermsOfUseChecked(!termsOfUseChecked);
-  }, [termsOfUseChecked, updateTermsOfUseChecked]);
+    updateTermsOfUseChecked(!termsOfUseChecked)
+  }, [termsOfUseChecked, updateTermsOfUseChecked])
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const handleSubmit = useCallback(async () => {
-    console.log("Submitting...");
+    console.log('Submitting...')
     // TODO: start spinner (loading)
     try {
       // const url = `${document.location.origin}/checkout`;
-      const url = `${process.env.REACT_APP_API}/checkout`;
-      console.log("url", url);
+      const url = `${process.env.REACT_APP_API}/checkout`
+      console.log('url', url)
       const response = await fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           event: selectedEvent,
           tickets: ticketsCounter,
-          cardNumber: cardNumber,
-          securityCode: securityCode,
-        }),
-      });
-      console.log("/checkout response", response);
+          cardNumber,
+          securityCode
+        })
+      })
+      console.log('/checkout response', response)
       if (!response.ok) {
-        throw response;
+        console.error(response)
+        throw new Error('Could not fetch checkout')
       }
-      const json = await response.json();
-      navigate("/confirmation", { state: json });
+      const json = await response.json()
+      navigate('/confirmation', { state: json })
     } catch (error) {
-      navigate("/confirmation", { state: error });
-      console.log(error);
+      navigate('/confirmation', { state: error })
+      console.log(error)
     }
     // TODO: stop spinner/loading (in case user comes back to this page)
-  }, [selectedEvent, ticketsCounter, navigate, cardNumber, securityCode]);
+  }, [selectedEvent, ticketsCounter, navigate, cardNumber, securityCode])
 
   return (
     <div className={className}>
-      <div className="Total">
+      <div className='Total'>
         <h2>Total</h2>
         <p>Event: {selectedEvent?.name}</p>
         <p>Tickets: {ticketsCounter}</p>
         <p>Card Number: {cardNumber}</p>
         <p>Security Code: {securityCode}</p>
         <input
-          type="checkbox"
+          type='checkbox'
           onChange={handleChangeTermsOfUse}
           checked={termsOfUseChecked}
-          name="termsOfUse"
+          name='termsOfUse'
         />
-        <label htmlFor="termsOfUse">
-          I have read and agree to the current{" "}
-          <a href="https://google.com">Terms of Use</a>
+        <label htmlFor='termsOfUse'>
+          I have read and agree to the current{' '}
+          <a href='https://google.com'>Terms of Use</a>
         </label>
         <button
-          className="Purchase-Tickets-Button"
+          className='Purchase-Tickets-Button'
           onClick={handleSubmit}
           disabled={
-            cardType === "" ||
-            cardType === "Invalid" ||
-            !securityCodeValid ||
-            !expirationDateValid ||
+            cardType === '' ||
+            cardType === 'Invalid' ||
+            securityCodeValid === false ||
+            expirationDateValid === false ||
             !termsOfUseChecked ||
             ticketsCounter === 0
           }
@@ -90,5 +91,5 @@ export function Summary({ className }: { className?: string }) {
         </button>
       </div>
     </div>
-  );
+  )
 }

@@ -1,9 +1,9 @@
-import { Profile } from "../components";
+import { Profile } from '../components'
 
-export function ProfilePage() {
+export function ProfilePage(): JSX.Element {
   return (
     <div>
       <Profile />
     </div>
-  );
+  )
 }

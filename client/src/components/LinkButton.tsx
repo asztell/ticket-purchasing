@@ -1,7 +1,7 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import classnames from "classnames";
-import "./LinkButton.scss";
+import { useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+import classnames from 'classnames'
+import './LinkButton.scss'
 
 export function LinkButton({
   to = null,
@@ -9,28 +9,28 @@ export function LinkButton({
   show = true,
   label,
   className,
-  onClick,
+  onClick = null
 }: {
-  to: string | null;
-  disabled?: boolean;
-  show?: boolean;
-  label: string;
-  className?: string;
-  onClick?: () => void;
-}) {
-  console.log("LinkButton");
-  const navigate = useNavigate();
+  to: string | null
+  disabled?: boolean
+  show?: boolean
+  label: string
+  className?: string
+  onClick?: (() => void) | null
+}): JSX.Element {
+  console.log('LinkButton')
+  const navigate = useNavigate()
   const handleButtonClick = useCallback(() => {
-    console.log("handleButtonClick onClick", onClick);
-    console.log("handleButtonClick to", to);
-    onClick && onClick();
-    to && navigate(to);
-  }, [onClick, navigate, to]);
+    console.log('handleButtonClick onClick', onClick)
+    console.log('handleButtonClick to', to)
+    onClick !== null && onClick()
+    to !== null && navigate(to)
+  }, [onClick, navigate, to])
 
-  const linkClassName = classnames("Link-Button", className);
+  const linkClassName = classnames('Link-Button', className)
 
   if (!show) {
-    return null;
+    return <> </>
   }
 
   return (
@@ -43,5 +43,5 @@ export function LinkButton({
         {label}
       </button>
     </div>
-  );
+  )
 }

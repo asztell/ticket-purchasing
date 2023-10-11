@@ -1,34 +1,28 @@
-import { useContext } from "react";
-import classnames from "classnames";
+// import classnames from 'classnames'
 // import { useAuth0 } from "@auth0/auth0-react";
-import {
-  Events,
-  Quantity,
-  LinkButton,
-  NavigationContainer,
-} from "../components";
-import { useQueryParams, getQueryParams } from "../hooks/useQueryParams";
+import { Events, Quantity } from '../components'
+// import { useQueryParams, getQueryParams } from '../hooks/useQueryParams'
 // import { TicketPurchasingContext } from "../contexts";
 
-export function EventsPage() {
+export function EventsPage(): JSX.Element {
   // const { selectedEvent, ticketsCounter } = useContext(TicketPurchasingContext);
-  const [queryParams] = useQueryParams();
-  const { eventId, ticketsCount } = getQueryParams(queryParams);
-  const disabledLinkButton = !eventId || !ticketsCount;
+  // const [queryParams] = useQueryParams()
+  // const { eventId, ticketsCount } = getQueryParams(queryParams)
+  // const disabledLinkButton = !eventId || !ticketsCount
   // const { isAuthenticated } = useAuth0();
   // const toCkeckoutPage = isAuthenticated ? "/checkout" : "/login";
 
-  const eventsPageToHomePageClassName = classnames(
-    "Events-Page-To-Home-Page",
-    "Left-Link-Button"
-  );
-  const eventsPageToCheckoutPageClassName = classnames(
-    "Events-Page-To-Checkout-Page",
-    "Right-Link-Button"
-  );
+  // const eventsPageToHomePageClassName = classnames(
+  //   'Events-Page-To-Home-Page',
+  //   'Left-Link-Button'
+  // )
+  // const eventsPageToCheckoutPageClassName = classnames(
+  //   'Events-Page-To-Checkout-Page',
+  //   'Right-Link-Button'
+  // )
 
   return (
-    <div className="Events-Page">
+    <div className='Events-Page'>
       <div>
         <Events />
         <Quantity />
@@ -48,5 +42,5 @@ export function EventsPage() {
         />
       </NavigationContainer> */}
     </div>
-  );
+  )
 }
