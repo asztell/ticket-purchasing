@@ -4,8 +4,9 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const fs = require('fs')
 const morgan = require('morgan')
+const path = require('path')
 
-const routes = require('./src/routes.ts')
+const routes = require(path.join(__dirname, 'src/routes.ts'))
 
 const app = express()
 
